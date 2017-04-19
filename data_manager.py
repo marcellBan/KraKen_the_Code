@@ -1,7 +1,10 @@
 from data_types import Task, Project
+import json
+import os
 
 
 class ProjectManager(object):
+
     def __init__(self, usr_id):
         """
         loads projects from file
@@ -10,21 +13,41 @@ class ProjectManager(object):
         self.usr_id = usr_id
         # TODO: load data from file if it exists create it if not
         self._projects = list()  # list of Project objects loaded from file
+        self._fname = "data/{}.db".format(self.usr_id)
+        if os.path.isfile(self._fname):
+            self._get_projects_from_file()
 
     def get_user_projects(self):
         return self._projects
 
     def add_user_project(self, new_project):
         """adds a new user project"""
+        self._projects.append(new_project)
+        self._save_user_projects()
 
     def remove_user_project(self, project_id):
         """removes a user project"""
+        for i, proj in enumerate(self._projects):
+            if proj.id == project_id:
+                del(self._projects[i])
+                break
+        self._save_user_projects()
 
     def _save_user_projects(self):
-        pass
+        data = {
+            "projects": self._projects
+        }
+        with open(self._fname, "w") as dbfile:
+            dbfile.write(json.dumps(data))
+
+    def _get_projects_from_file(self):
+        with open(self._fname) as dbfile:
+            data = json.loads(dbfile)
+        self._projects = data["projects"]
 
 
 class TaskManager(object):
+
     def __init__(self, project_id):
         """
         loads tasks from file
