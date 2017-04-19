@@ -24,7 +24,7 @@ class ProjectManager(object):
         pass
 
 
-class DataManager(object):
+class TaskManager(object):
     def __init__(self, project_id):
         """
         loads tasks from file

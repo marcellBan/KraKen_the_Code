@@ -3,7 +3,7 @@ KraKen the Code webapp
 """
 
 import json
-from data_manager import DataManager
+from data_manager import TaskManager, ProjectManager
 from data_types import Task, Project
 from flask import Flask, request, session, redirect, render_template, url_for, make_response
 app = Flask(__name__)
