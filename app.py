@@ -2,13 +2,20 @@
 KraKen the Code webapp
 """
 
-from flask import Flask, render_template
+import json
+from flask import Flask, render_template, make_response, url_for
 app = Flask(__name__)
 
 
 @app.route("/")
 def root():
-    return "Hello World!"
+    return render_template("index.html", main_js=url_for('static', filename='js/main.js'))
+
+
+# @app.route("/hi")
+# def test():
+#     d = {"hi": "hi"}
+#     return make_response(json.dumps(d), 200, {"content_type": "application/json"})
 
 
 @app.route("/hello/")

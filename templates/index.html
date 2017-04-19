@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KraKen the Code</title>
+    <script src="{{ main_js}}" ></script>
+    <script src="https://apis.google.com/js/platform.js?onload=start" async defer></script>
+    <!--<meta name="google-signin-client_id" content="95366867191-gjj1d97guk88o6lj23338lma223hrk31.apps.googleusercontent.com">-->
+</head>
+
+<body>
+    Hello World!
+    <div id="my-signin2" onclick="auth2.grantOfflineAccess().then(signInCallback);"></div>
+    <a href="#" onclick="signOut();">Sign out</a>
+</body>
+
+</html>
