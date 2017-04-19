@@ -1,0 +1,27 @@
+<!doctype html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Hello from Flask</title>
+{% if name %}
+  <h1>Hello, {{ name }}!</h1>
+{% else %}
+  <h1>Hello, World!</h1>
+{% endif %}
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <div class='well'>
+        <a class="btn btn-warning" href="/" role="button">Link</a>
+      </div>
+    </div>
+    <div class='col-md-4'>
+      <div class='well'>
+        <a class="btn btn-success" href="#">Another link</a>
+      </div>
+    </div>
+    <div class='col-md-4'>
+      <div class='well'>
+        <div class="btn btn-success">Button</button>
+      </div>
+    </div>
+  </div>
+</div>
