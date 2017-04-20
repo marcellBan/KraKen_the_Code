@@ -3,6 +3,10 @@
 
 <head>
     <title>KraKen the Code</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ style_css }}" style type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{{ tools_js }}"></script>
     <script src="{{ main_js }}" ></script>
     <script src="https://apis.google.com/js/platform.js?onload=start" async defer></script>
@@ -10,8 +14,18 @@
 </head>
 
 <body>
-    Modules
-    <a href="#" onclick="signOut()">Sign out</a>
+    <div class="container-fluid">
+        <div class="page-header">
+            <h2>Module Selection</h2>
+        </div>
+        <div class="jumbotron">
+            <div class="row" id="module-selector">
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+            </div>
+        </div>
+        <a href="#" onclick="signOut()">Sign out</a>
+    </div>
 </body>
 
 </html>

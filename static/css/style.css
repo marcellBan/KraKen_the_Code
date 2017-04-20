@@ -1,0 +1,23 @@
+html, body {
+    font-family: "Blogger Sans", "Open Sans", sans-serif;
+    font-weight: bold;
+    background-color: #5ba3c6;
+}
+
+.page-header, .jumbotron, #kraken-main-logo {
+    background-color: #ddeaf2;
+}
+
+.page-header {
+    padding: 20px;
+}
+
+#kraken_main_logo {
+    height: 100px;
+    width: auto;
+}
+
+h1 {
+    padding: auto;
+    padding-left: 25px;
+}

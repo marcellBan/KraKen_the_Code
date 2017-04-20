@@ -80,7 +80,7 @@ def del_project():
 def project_page():
     project_id = request.args.get('project_id')
     task_manager = TaskManager(project_id)
-    return render_template('tasks.html'
+    return render_template('tasks.html',
                            tasks=task_manager.get_tasks(),
                            add_task='{}?project_id={}'.format(url_for('add_task'), project_id)
                            back_link=url_for('com_mission_module'),
