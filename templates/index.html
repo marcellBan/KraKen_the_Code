@@ -4,28 +4,30 @@
 <head>
     <title>KraKen the Code</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ style_css }}" style type="text/css">
+    <link rel="stylesheet" href="/static/css/style.css" style type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{{ tools_js }}"></script>
-    <script src="{{ main_js }}" ></script>
+    <script src="/static/js/tools.js"></script>
+    <script src="/static/js/main.js" ></script>
     <script src="https://apis.google.com/js/platform.js?onload=start" async defer></script>
-    <!--<meta name="google-signin-client_id" content="95366867191-gjj1d97guk88o6lj23338lma223hrk31.apps.googleusercontent.com">-->
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="page-header">
             <div class="row">
+                <div class="col-md-4">
+                    <img id="kraken-main-logo" src="/static/img/kraken_logo.png">
+                </div>
                 <div class="col-md-8">
                     <h1>KraKen the Code</h1>
                 </div>
-                <div class="col-md-4">
-                    <img id="kraken-main-logo" src="{{ kraken_logo }}">
-                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"></div>
             </div>
         </div>
-        <div class="jumbotron">
+        <div class="jumbotron" id="main-p-jumbo">
             <p>blablabla</p>
             <div id="my-signin2"></div>
         </div>

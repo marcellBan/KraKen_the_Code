@@ -12,9 +12,13 @@ html, body {
     padding: 20px;
 }
 
-#kraken_main_logo {
-    height: 100px;
+#kraken-main-logo {
+    height: 200px;
     width: auto;
+}
+
+#main-p-jumbo {
+    height: 300px;
 }
 
 h1 {
