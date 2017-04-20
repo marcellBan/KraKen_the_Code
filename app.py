@@ -114,7 +114,7 @@ def del_task():
 def logout():
     print('logout: ' + session['usr'])
     session.pop('usr', None)
-    return redirect(url_for('root'))
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
