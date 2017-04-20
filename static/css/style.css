@@ -13,15 +13,24 @@ html, body {
 }
 
 #kraken-main-logo {
-    height: 200px;
+    height: 170px;
     width: auto;
 }
 
-#main-p-jumbo {
-    height: 300px;
+.jumbotron {
+    padding: 280px;
 }
 
 h1 {
     padding: auto;
     padding-left: 25px;
+}
+
+.btn-mod {
+    padding: auto;
+}
+
+.btn-module {
+    height: 150px;
+    width: 200px;
 }

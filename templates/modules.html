@@ -3,28 +3,33 @@
 
 <head>
     <title>KraKen the Code</title>
+    <link rel="icon" href="/static/img/favicon-32x32.png" type="image/png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/style.css" style type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/static/js/tools.js"></script>
     <script src="/static/js/main.js" ></script>
     <script src="https://apis.google.com/js/platform.js?onload=start" async defer></script>
-    <!--<meta name="google-signin-client_id" content="95366867191-gjj1d97guk88o6lj23338lma223hrk31.apps.googleusercontent.com">-->
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="page-header">
             <h2>Module Selection</h2>
+            <a href="#" onclick="signOut()">Sign out</a>
         </div>
         <div class="jumbotron">
             <div class="row" id="module-selector">
-                <div class="col-md-6"></div>
-                <div class="col-md-6"></div>
+                <div class="col-md-6 btn-mod">
+                    <div class="btn btn-lg btn-info btn-module">ComMission</div>
+                </div>
+                <div class="col-md-6 btn-mod">
+                    <div class="btn btn-lg btn-info btn-module">AfterMath</div>
+                </div>
             </div>
         </div>
-        <a href="#" onclick="signOut()">Sign out</a>
     </div>
 </body>
 
