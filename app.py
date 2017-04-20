@@ -41,7 +41,9 @@ def module_chooser():
                            main_js=url_for('static', filename='js/main.js'),
                            tools_js=url_for('static', filename='js/tools.js'),
                            logout=url_for('logout'),
-                           style_css=url_for('static', filename='css/style.css')
+                           style_css=url_for('static', filename='css/style.css'),
+                           kraken_icon=url_for('static', filename='img/kraken_icon.png'),
+                           kraken_logo=url_for('static', filename='img/kraken_logo.png')
                            )
 
 
@@ -53,7 +55,9 @@ def com_mission_module():
                            add_proj=url_for('add_proj')
                            back_link=url_for('module_chooser'),
                            logout=url_for('logout'),
-                           style_css=url_for('static', filename='css/style.css')
+                           style_css=url_for('static', filename='css/style.css'),
+                           kraken_icon=url_for('static', filename='img/kraken_icon.png'),
+                           kraken_logo=url_for('static', filename='img/kraken_logo.png')
                            )
 
 
@@ -81,7 +85,9 @@ def project_page():
                            add_task='{}?project_id={}'.format(url_for('add_task'), project_id)
                            back_link=url_for('com_mission_module'),
                            logout=url_for('logout'),
-                           style_css=url_for('static', filename='css/style.css')
+                           style_css=url_for('static', filename='css/style.css'),
+                           kraken_icon=url_for('static', filename='img/kraken_icon.png'),
+                           kraken_logo=url_for('static', filename='img/kraken_logo.png')
                            )
 
 
