@@ -1,3 +1,5 @@
+from tools import get_random_id
+
 
 class Task(object):
     def __init__(self, description, priority, status, id=None):
@@ -7,14 +9,14 @@ class Task(object):
         if id is not None:
             self.id = id
         else:
-            self.id = 1  # generate somehow
+            self.id = get_random_id()
 
     def get_dict(self):
         return {
-            "id": self.id,
-            "priority": self.priority,
-            "description": self.description,
-            "status": self.status
+            'id': self.id,
+            'priority': self.priority,
+            'description': self.description,
+            'status': self.status
         }
 
 
@@ -25,11 +27,11 @@ class Project(object):
         if id is not None:
             self.id = id
         else:
-            self.id = 1  # generate somehow
+            self.id = get_random_id()
 
     def get_dict(self):
         return {
-            "id": self.id,
-            "title": self.title,
-            "description": self.description
+            'id': self.id,
+            'title': self.title,
+            'description': self.description
         }
