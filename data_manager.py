@@ -11,7 +11,6 @@ class ProjectManager(object):
         filename = usr_id + ".db"
         """
         self.usr_id = usr_id
-        # TODO: load data from file if it exists create it if not
         self._projects = list()  # list of Project objects loaded from file
         self._fname = "data/{}.db".format(self.usr_id)
         if os.path.isfile(self._fname):
@@ -35,15 +34,19 @@ class ProjectManager(object):
 
     def _save_user_projects(self):
         data = {
-            "projects": self._projects
+            "projects": list(map(lambda x: x.get_dict(), self._projects))
         }
         with open(self._fname, "w") as dbfile:
-            dbfile.write(json.dumps(data))
+            json.dump(data, dbfile)
 
     def _get_projects_from_file(self):
         with open(self._fname) as dbfile:
-            data = json.loads(dbfile)
-        self._projects = data["projects"]
+            data = json.load(dbfile)
+        for proj in data.get("projects"):
+            self._projects.append(
+                Project(proj.get("title"),
+                        proj.get("description"),
+                        id=proj.get("id")))
 
 
 class TaskManager(object):
