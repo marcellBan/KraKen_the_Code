@@ -9,6 +9,14 @@ class Task(object):
         else:
             self.id = 1  # generate somehow
 
+    def get_dict(self):
+        return {
+            "id": self.id,
+            "priority": self.priority,
+            "description": self.description,
+            "status": self.status
+        }
+
 
 class Project(object):
     def __init__(self, title, description, id=None):

@@ -12,7 +12,7 @@ class ProjectManager(object):
         """
         self.usr_id = usr_id
         self._projects = list()  # list of Project objects loaded from file
-        self._fname = "data/{}.db".format(self.usr_id)
+        self._fname = "data/users/{}.db".format(self.usr_id)
         if os.path.isfile(self._fname):
             self._get_projects_from_file()
 
@@ -59,22 +59,55 @@ class TaskManager(object):
         self.project_id = project_id
         # TODO: load data from file if it exists create it if not
         self._tasks = list()
+        self._fname = "data/projects/{}.db".format(self.project_id)
+        if os.path.isfile(self._fname):
+            self._get_tasks_from_file()
 
     def get_tasks(self):
         """returns a list of Task objects"""
         return self._tasks
 
-    def add_task(self, task):
+    def add_task(self, new_task):
         """adds a new task to the list of tasks and saves the db"""
-
-    def _save_db(self):
-        """writes the list of tasks to the dbfile"""
+        self._tasks.append(new_task)
+        self._save_db()
 
     def remove_task(self, task_id):
         """removes task and saves db"""
+        for i, task in enumerate(self._tasks):
+            if task.id == task_id:
+                del(self._tasks[i])
+                break
+        self._save_db()
 
     def update_task_priority(self, task_id, new_priority):
-        pass
+        for task in self._tasks:
+            if task.id == task_id:
+                task.priority = new_priority
+                break
+        self._save_db()
 
     def update_task_status(self, task_id, new_status):
-        pass
+        for task in self._tasks:
+            if task.id == task_id:
+                task.status = new_status
+                break
+        self._save_db()
+
+    def _save_db(self):
+        """writes the list of tasks to the dbfile"""
+        data = {
+            "tasks": list(map(lambda x: x.get_dict(), self._tasks))
+        }
+        with open(self._fname, "w") as dbfile:
+            json.dump(data, dbfile)
+
+    def _get_projects_from_file(self):
+        with open(self._fname) as dbfile:
+            data = json.load(dbfile)
+        for task in data.get("tasks"):
+            self._projects.append(
+                Task(task.get("description"),
+                     task.get("priority"),
+                     task.get("status"),
+                     id=task.get("id")))
