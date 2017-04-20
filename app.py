@@ -33,9 +33,9 @@ def index():
 
 @app.route('/modules')
 def module_chooser():
-    if resuest.args.get('usr'):
-        print('login: ' + request.args.get('usr'))
-        session['usr'] = request.args.get('usr')
+    if request.args.get("usr"):
+        print("login: " + request.args.get("usr"))
+        session['usr'] = request.args.get("usr")
 
     return render_template('modules.html',
                            main_js=url_for('static', filename='js/main.js'),
