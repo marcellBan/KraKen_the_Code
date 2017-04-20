@@ -15,7 +15,9 @@ def index():
     return render_template('index.html',
                            main_js=url_for('static', filename='js/main.js'),
                            tools_js=url_for('static', filename='js/tools.js'),
-                           style_css=url_for('static', filename='css/style.css')
+                           style_css=url_for('static', filename='css/style.css'),
+                           kraken_icon=url_for('static', filename='img/kraken_icon.png'),
+                           kraken_logo=url_for('static', filename='img/kraken_logo.png')
                            )
 
 
@@ -52,7 +54,7 @@ def com_mission_module():
     project_manager = ProjectManager(session.get('usr'))
     return render_template('projects.html',
                            projects=project_manager.get_user_projects(),
-                           add_proj=url_for('add_proj')
+                           add_proj=url_for('add_proj'),
                            back_link=url_for('module_chooser'),
                            logout=url_for('logout'),
                            style_css=url_for('static', filename='css/style.css'),
@@ -82,7 +84,7 @@ def project_page():
     task_manager = TaskManager(project_id)
     return render_template('tasks.html',
                            tasks=task_manager.get_tasks(),
-                           add_task='{}?project_id={}'.format(url_for('add_task'), project_id)
+                           add_task='{}?project_id={}'.format(url_for('add_task'), project_id),
                            back_link=url_for('com_mission_module'),
                            logout=url_for('logout'),
                            style_css=url_for('static', filename='css/style.css'),
