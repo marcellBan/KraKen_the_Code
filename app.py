@@ -12,13 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html',
-                           main_js=url_for('static', filename='js/main.js'),
-                           tools_js=url_for('static', filename='js/tools.js'),
-                           style_css=url_for('static', filename='css/style.css'),
-                           kraken_icon=url_for('static', filename='img/kraken_icon.png'),
-                           kraken_logo=url_for('static', filename='img/kraken_logo.png')
-                           )
+    return render_template('index.html')
 
 
 # @app.route('/hi')
@@ -39,14 +33,7 @@ def module_chooser():
         print("login: " + request.args.get("usr"))
         session['usr'] = request.args.get("usr")
 
-    return render_template('modules.html',
-                           main_js=url_for('static', filename='js/main.js'),
-                           tools_js=url_for('static', filename='js/tools.js'),
-                           logout=url_for('logout'),
-                           style_css=url_for('static', filename='css/style.css'),
-                           kraken_icon=url_for('static', filename='img/kraken_icon.png'),
-                           kraken_logo=url_for('static', filename='img/kraken_logo.png')
-                           )
+    return render_template('modules.html')
 
 
 @app.route('/comMission')
@@ -55,11 +42,7 @@ def com_mission_module():
     return render_template('projects.html',
                            projects=project_manager.get_user_projects(),
                            add_proj=url_for('add_proj'),
-                           back_link=url_for('module_chooser'),
-                           logout=url_for('logout'),
-                           style_css=url_for('static', filename='css/style.css'),
-                           kraken_icon=url_for('static', filename='img/kraken_icon.png'),
-                           kraken_logo=url_for('static', filename='img/kraken_logo.png')
+                           back_link=url_for('module_chooser')
                            )
 
 
@@ -85,11 +68,7 @@ def project_page():
     return render_template('tasks.html',
                            tasks=task_manager.get_tasks(),
                            add_task='{}?project_id={}'.format(url_for('add_task'), project_id),
-                           back_link=url_for('com_mission_module'),
-                           logout=url_for('logout'),
-                           style_css=url_for('static', filename='css/style.css'),
-                           kraken_icon=url_for('static', filename='img/kraken_icon.png'),
-                           kraken_logo=url_for('static', filename='img/kraken_logo.png')
+                           back_link=url_for('com_mission_module')
                            )
 
 
