@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KraKen the Code</title>
+    <link rel="icon" href="/static/img/favicon-32x32.png" type="image/png">
+    <script src="/static/js/tools.js"></script>
+    <script src="/static/js/main.js" ></script>
+    <script src="https://apis.google.com/js/platform.js?onload=start" async defer></script>
+</head>
+
+<body>
+    <a href="{{ add_proj }}">Add a new project</a>
+    <br /><br />
+    {% for project in projects %}
+        <pre>    <a href="{{ project['proj_link'] }}">{{ project['proj_name'] }}</a>            <a href="{{ project['del_link'] }}">Del</a><br /></pre>
+    {% endfor %}
+    <br />
+    <pre><a href="{{ back_link }}">Back</a>
+
+
+<a href="#" onclick="signOut()">Sign out</a></pre>
+</body>

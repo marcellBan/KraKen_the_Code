@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KraKen the Code</title>
+    <link rel="icon" href="/static/img/favicon-32x32.png" type="image/png">
+    <script src="/static/js/tools.js"></script>
+    <script src="/static/js/main.js" ></script>
+    <script src="https://apis.google.com/js/platform.js?onload=start" async defer></script>
+</head>
+
+<body>
+    <a href="{{ add_task }}">Add a new task</a>
+    <br /><br />
+    {% for task in tasks %}
+        <pre>    {{ task['task_name'] }}            <a href="{{ task['del_link'] }}">Del</a><br /></pre>
+    {% endfor %}
+    <br />
+    <pre><a href="{{ back_link }}">Back</a>
+
+
+<a href="#" onclick="signOut()">Sign out</a></pre>
+</body>

@@ -34,6 +34,7 @@ class ProjectManager(object):
 
     def remove_user_project(self, project_id):
         '''removes a user project'''
+        project_id = int(project_id)
         for i, proj in enumerate(self._projects):
             if proj.id == project_id:
                 del(self._projects[i])
@@ -87,6 +88,7 @@ class TaskManager(object):
 
     def remove_task(self, task_id):
         '''removes task and saves db'''
+        task_id = int(task_id)
         for i, task in enumerate(self._tasks):
             if task.id == task_id:
                 del(self._tasks[i])
@@ -115,11 +117,11 @@ class TaskManager(object):
         with open(self._fname, 'w') as dbfile:
             json.dump(data, dbfile)
 
-    def _get_projects_from_file(self):
+    def _get_tasks_from_file(self):
         with open(self._fname) as dbfile:
             data = json.load(dbfile)
         for task in data.get('tasks'):
-            self._projects.append(Task(
+            self._tasks.append(Task(
                 task.get('description'),
                 task.get('priority'),
                 task.get('status'),
