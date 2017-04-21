@@ -21,16 +21,36 @@ html, body {
     padding: 280px;
 }
 
-h1 {
-    padding: auto;
-    padding-left: 25px;
+.page-header h1 {
+    font-family: "Blogger Sans-B", "Open Sans", sans-serif;
+    margin-top: 40px;
+    padding-right: 70px;
+    font-size: 6em;
+    text-align: right;
 }
 
-.btn-mod {
-    padding: auto;
-}
 
 .btn-module {
+    margin: 0 auto;
     height: 150px;
     width: 200px;
+}
+
+#my-signin2, #login-text {
+    display: inline-block;
+}
+
+#login-text {
+    margin-top: -30px;
+    margin-left: 30px;
+}
+
+@font-face {
+    font-family: Blogger Sans-B;
+    src: url(/static/font/Blogger_Sans-Bold.woff);
+}
+
+@font-face {
+    font-family: Blogger Sans;
+    src: url(/static/font/Blogger-Sans.ttf.woff);
 }
