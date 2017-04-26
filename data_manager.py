@@ -4,6 +4,36 @@ import json
 import os
 
 
+def get_user_projects(user_id):
+    pm = ProjectManager(user_id)
+    return pm.get_user_projects()
+
+
+def add_user_project(user_id, title, description):
+    pm = ProjectManager(user_id)
+    pm.add_user_project(Project(title, description))
+
+
+def remove_user_project(user_id, project_id):
+    pm = ProjectManager(user_id)
+    pm.remove_user_project(project_id)
+
+
+def get_tasks(project_id):
+    tm = TaskManager(project_id)
+    return tm.get_tasks()
+
+
+def add_task(project_id, description, priority, status):
+    tm = TaskManager(project_id)
+    tm.add_task(Task(description, priority, status))
+
+
+def remove_task(project_id, task_id):
+    tm = TaskManager(project_id)
+    tm.remove_task(task_id)
+
+
 class ProjectManager(object):
 
     def __init__(self, usr_id):

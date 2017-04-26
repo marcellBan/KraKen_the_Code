@@ -3,8 +3,8 @@ KraKen the Code webapp
 '''
 
 import os
-from data_manager import TaskManager, ProjectManager
-from data_types import Task, Project
+from data_manager import get_user_projects, add_user_project, remove_user_project
+from data_manager import get_tasks, add_task, remove_task
 from tools import get_random_text
 from flask import Flask, request, session, redirect, render_template, url_for, make_response
 app = Flask(__name__)
@@ -38,9 +38,8 @@ def module_chooser():
 
 @app.route('/comMission')
 def com_mission_module():
-    project_manager = ProjectManager(session.get('usr'))
     return render_template('projects.html',
-                           projects=project_manager.get_user_projects(),
+                           projects=get_user_projects(session.get('usr')),
                            add_proj=url_for('add_proj'),
                            back_link=url_for('module_chooser')
                            )
@@ -48,25 +47,22 @@ def com_mission_module():
 
 @app.route('/addProject')
 def add_proj():
-    project_manager = ProjectManager(session.get('usr'))
-    project_manager.add_user_project(Project(get_random_text(10), get_random_text(20)))
+    add_user_project(session.get('usr'), get_random_text(10), get_random_text(20))
     return redirect(url_for('com_mission_module'))
 
 
 @app.route('/deleteProject')
 def del_project():
-    project_manager = ProjectManager(session.get('usr'))
     proj_id = request.args.get('project_id')
-    project_manager.remove_user_project(proj_id)
+    remove_user_project(session.get('usr'), proj_id)
     return redirect(url_for('com_mission_module'))
 
 
 @app.route('/project')
 def project_page():
     project_id = request.args.get('project_id')
-    task_manager = TaskManager(project_id)
     return render_template('tasks.html',
-                           tasks=task_manager.get_tasks(),
+                           tasks=get_tasks(project_id),
                            add_task='{}?project_id={}'.format(url_for('add_task'), project_id),
                            back_link=url_for('com_mission_module')
                            )
@@ -75,8 +71,7 @@ def project_page():
 @app.route('/addTask')
 def add_task():
     project_id = request.args.get('project_id')
-    task_manager = TaskManager(project_id)
-    task_manager.add_task(Task(get_random_text(15), 'LOW', 'TODO'))
+    add_task(project_id, get_random_text(15), 'LOW', 'TODO')
     return redirect('{}?project_id={}'.format(url_for('project_page'), project_id))
 
 
@@ -84,8 +79,7 @@ def add_task():
 def del_task():
     task_id = request.args.get('task_id')
     project_id = request.args.get('project_id')
-    task_manager = TaskManager(project_id)
-    task_manager.remove_task(task_id)
+    remove_task(project_id, task_id)
     return redirect('{}?project_id={}'.format(url_for('project_page'), project_id))
 
 
